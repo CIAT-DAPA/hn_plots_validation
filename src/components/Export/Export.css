@@ -1,0 +1,22 @@
+.export {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.export__hint {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.export__warning {
+  margin: 0;
+  color: var(--color-warning);
+}
+
+.export__message {
+  margin: 0;
+  font-weight: 600;
+}

@@ -1,0 +1,82 @@
+.plots {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.plots__empty {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.plots__summary {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.plots__ok {
+  color: var(--color-ok);
+  font-weight: 600;
+}
+
+.plots__error {
+  color: var(--color-error);
+  font-weight: 600;
+}
+
+.plots__table-wrapper {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.plots__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.plots__table th,
+.plots__table td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.plots__table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--color-surface-alt);
+  z-index: 1;
+}
+
+.plots__row--highlight {
+  background: var(--color-highlight);
+}
+
+.plots__badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.plots__badge--ok {
+  background: var(--color-ok);
+}
+
+.plots__badge--error {
+  background: var(--color-error);
+}
+
+.plots__errors {
+  margin: 0;
+  padding-left: 1rem;
+  color: var(--color-error);
+}
