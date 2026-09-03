@@ -70,13 +70,3 @@ npm run preview  # previsualiza dist/
 
 El trabajo se realiza en la rama `develop`; `main` es la rama de despliegue.
 
-## Despliegue en GitHub Pages
-
-El flujo `.github/workflows/deploy.yml` construye y publica el sitio en GitHub Pages cada
-vez que se hace push a la rama `main`. Pasos únicos de configuración en el repositorio:
-
-1. *Settings → Pages → Build and deployment → Source*: **GitHub Actions**.
-2. Si el repositorio no se llama `hn_plots_validation`, ajustar `base` en `vite.config.js`
-   (o definir la variable `VITE_BASE`, por ejemplo `/mi-repo/`).
-
-El sitio queda disponible en `https://<usuario>.github.io/hn_plots_validation/`.

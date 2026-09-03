@@ -1,12 +1,14 @@
 /**
  * @file Root component. Owns the shared list of Plot entities and lays out the
- * four vertical sections: header, data input, validation (table | map) and export.
+ * four vertical sections: header, data input, validation (table | map) and export,
+ * followed by the credits footer.
  */
 import { useCallback, useState } from 'react';
 import Input from './components/Input/Input.jsx';
 import Plots from './components/Plots/Plots.jsx';
 import Map from './components/Map/Map.jsx';
 import Export from './components/Export/Export.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import { buildPlots } from './services/geometryBuilder.js';
 import { validatePlots } from './services/validator.js';
 import './App.css';
@@ -107,6 +109,8 @@ export default function App() {
         <h2>Exportación</h2>
         <Export plots={plots} />
       </section>
+
+      <Footer />
     </div>
   );
 }
