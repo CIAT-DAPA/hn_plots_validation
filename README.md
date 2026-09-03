@@ -23,9 +23,11 @@ su uso en otros sistemas de información geográfica.
    - Área nula o degenerada
    - Identificador vacío
    - Identificador duplicado
-4. **Visualización**: tabla (check, ID, estado, errores) a la izquierda y mapa a la derecha.
-   Polígonos verdes = `OK`, rojos = `ERROR`. Al pasar el cursor sobre una fila se resalta el
-   polígono y viceversa.
+4. **Visualización**: tabla (check, mapa, ID, estado, errores) a la izquierda y mapa a la
+   derecha. Polígonos verdes = `OK`, rojos = `ERROR`. Al pasar el cursor sobre una fila se
+   resalta el polígono y viceversa. La columna **Mapa** es un interruptor que muestra u oculta
+   cada polígono en el mapa (todos visibles por defecto); solo afecta la visualización, no la
+   selección para exportar ni la validación.
 5. **Exportación**: exporta los predios marcados con el check. Un predio se descarga como
    `<ID>.geojson`; varios predios se descargan como `predios_geojson.zip` con un
    `.geojson` por predio.

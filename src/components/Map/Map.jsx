@@ -51,6 +51,9 @@ function FitBounds({ plots }) {
  */
 export default function Map({ plots, highlightedKey, onHighlight }) {
   const drawable = useMemo(() => drawablePlots(plots), [plots]);
+  // Only plots switched on in the table are rendered; bounds still use every drawable
+  // plot so toggling visibility does not move the map.
+  const shown = useMemo(() => drawable.filter((plot) => plot.visible), [drawable]);
 
   return (
     <MapContainer center={DEFAULT_CENTER} zoom={DEFAULT_ZOOM} className="map" scrollWheelZoom>
@@ -58,7 +61,7 @@ export default function Map({ plots, highlightedKey, onHighlight }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {drawable.map((plot) => {
+      {shown.map((plot) => {
         const isHighlighted = plot.key === highlightedKey;
         const style = { ...STYLES[plot.status], ...(isHighlighted ? STYLES.highlight : {}) };
         return (

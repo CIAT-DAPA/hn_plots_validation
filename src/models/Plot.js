@@ -23,14 +23,16 @@ export class Plot {
    * @param {object} params.properties - All other Excel columns as key/value attributes.
    * @param {string[]} [params.errors=[]] - Validation messages that failed.
    * @param {boolean} [params.selected=true] - Whether the plot is checked for export.
+   * @param {boolean} [params.visible=true] - Whether the plot is drawn on the map (display only).
    */
-  constructor({ id, rowIndex, geometry, properties, errors = [], selected = true }) {
+  constructor({ id, rowIndex, geometry, properties, errors = [], selected = true, visible = true }) {
     this.id = id;
     this.rowIndex = rowIndex;
     this.geometry = geometry;
     this.properties = properties;
     this.errors = errors;
     this.selected = selected;
+    this.visible = visible;
   }
 
   /**
@@ -99,5 +101,16 @@ export class Plot {
    */
   withSelected(selected) {
     return new Plot({ ...this, selected });
+  }
+
+  /**
+   * Returns a shallow copy with the map visibility flag replaced. Visibility only
+   * affects rendering; it never changes selection, validation or export.
+   *
+   * @param {boolean} visible
+   * @returns {Plot}
+   */
+  withVisible(visible) {
+    return new Plot({ ...this, visible });
   }
 }
