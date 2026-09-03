@@ -80,3 +80,62 @@
   padding-left: 1rem;
   color: var(--color-error);
 }
+
+/* Map visibility switch */
+.plots__visibility-header {
+  white-space: nowrap;
+}
+
+.plots__visibility-label {
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.plots__switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 18px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.plots__switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.plots__switch-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: #b8c2bd;
+  transition: background 0.15s;
+}
+
+.plots__switch-track::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.15s;
+}
+
+.plots__switch input:checked + .plots__switch-track {
+  background: var(--color-primary);
+}
+
+.plots__switch input:checked + .plots__switch-track::before {
+  transform: translateX(16px);
+}
+
+.plots__switch input:focus-visible + .plots__switch-track {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

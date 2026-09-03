@@ -55,6 +55,23 @@ export default function App() {
     setPlots((current) => current.map((p) => p.withSelected(selected)));
   }, []);
 
+  /**
+   * Shows or hides one plot on the map. Does not alter selection or validation.
+   * @param {string} key - Plot key.
+   * @param {boolean} visible - New visibility value.
+   */
+  const handleToggleVisible = useCallback((key, visible) => {
+    setPlots((current) => current.map((p) => (p.key === key ? p.withVisible(visible) : p)));
+  }, []);
+
+  /**
+   * Shows or hides every plot on the map.
+   * @param {boolean} visible - New visibility value.
+   */
+  const handleToggleAllVisible = useCallback((visible) => {
+    setPlots((current) => current.map((p) => p.withVisible(visible)));
+  }, []);
+
   return (
     <div className="app">
       <header className="app__header">
@@ -74,6 +91,8 @@ export default function App() {
               plots={plots}
               onToggle={handleToggle}
               onToggleAll={handleToggleAll}
+              onToggleVisible={handleToggleVisible}
+              onToggleAllVisible={handleToggleAllVisible}
               highlightedKey={highlightedKey}
               onHighlight={setHighlightedKey}
             />
